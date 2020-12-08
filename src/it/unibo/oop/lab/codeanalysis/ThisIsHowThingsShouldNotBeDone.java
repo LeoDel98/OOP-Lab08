@@ -43,7 +43,7 @@ public class ThisIsHowThingsShouldNotBeDone {
      * 
      * Missing Javadoc
      */
-    public static void main(String[] a) {
+    public static void main(final String[] a) {
         /*
          * PMD Complains:
          * 
@@ -61,14 +61,16 @@ public class ThisIsHowThingsShouldNotBeDone {
          * 
          * What does it mean "43"? It's a magic number!
          */
-        for (int i = 0; i < 43; i++)
+        final int limit = 43;
+        for (int i = 0; i < limit; i++) {
             c.add(new Object());
+        }
         /*
          * FindBugs complains
          * 
          * Slow: use clear() instead!
          */
-        c.removeAll(c);
+        c.clear();
     }
 
 }
