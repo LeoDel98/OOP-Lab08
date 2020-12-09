@@ -34,6 +34,7 @@ public class Controller {
      */
     private static final String HOME = System.getProperty("user.home");
     private static final String SEPARATOR = System.getProperty("file.separator");
+    //private static final String FILE_TYPE = ".txt";
     private static final String DEFAULT_FILE = "output.txt";
     private File currentFile = new File(HOME + SEPARATOR + DEFAULT_FILE);
     /**
