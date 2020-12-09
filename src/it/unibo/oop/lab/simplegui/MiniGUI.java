@@ -10,9 +10,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  * This class is a simple application that writes a random number on a file.
@@ -32,19 +34,45 @@ public class MiniGUI {
      * 
      */
     public MiniGUI() {
+        //Gui example
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
-        final JButton write = new JButton("Print a random number on standard output");
-        canvas.add(write, BorderLayout.CENTER);
+        //final JButton write = new JButton("Print a random number on standard output");
+        //canvas.add(write, BorderLayout.CENTER);
         frame.setContentPane(canvas);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         /*
          * Handlers
          */
-        write.addActionListener(new ActionListener() {
+        /*write2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
                 System.out.println(rng.nextInt());
+            }
+        });*/
+        /**
+         * Ex 1 
+         */
+        final JPanel canvas2 = new JPanel();
+        canvas2.setLayout(new BoxLayout(canvas2, BoxLayout.LINE_AXIS));
+        final JButton write2 = new JButton("Print Random");
+        canvas2.add(write2, BoxLayout.X_AXIS);
+        canvas.add(canvas2, BorderLayout.CENTER);
+        /**
+         * Ex 2
+         */
+        final JTextField result = new JTextField();
+        canvas.add(result, BorderLayout.NORTH);
+        
+        write2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                /**
+                 * Ex 3
+                 */
+                int rand = rng.nextInt();
+                System.out.println(rand);
+                result.setText(Integer.toString(rand));
             }
         });
     }
@@ -68,6 +96,10 @@ public class MiniGUI {
          * on screen. Results may vary, but it is generally the best choice.
          */
         frame.setLocationByPlatform(true);
+        /**
+         * 
+         */
+        frame.pack();
         /*
          * OK, ready to pull the frame onscreen
          */
